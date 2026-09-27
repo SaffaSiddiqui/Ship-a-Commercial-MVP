@@ -1,15 +1,21 @@
-# BookNest project notes
+# AGENT.md — BookNest Commercial MVP
 
-## Goal
-Maintain a small, polished bookstore demo that works as a static site.
+## Project Goal
+Build a small, functional online book store MVP that can be demonstrated as a real commercial product.
 
-## Implementation
-- Use HTML5, CSS3, and vanilla JavaScript only.
-- Keep the catalog and temporary cart state in `script.js`.
-- Do not add a backend, API, framework, build step, or browser storage.
-- Treat checkout as a demo: do not claim orders or customer details are sent or saved.
+## Core Requirements
+- Keep the project small and focused.
+- Users can search and filter books.
+- Users can add books to a cart and change quantities.
+- Users can submit a checkout order.
+- The interface is responsive and easy to use.
+- Test navigation, cart behavior and checkout before delivery.
+
+## Design
+Use a clean editorial bookstore style with strong typography, whitespace, clear pricing and simple calls to action.
 
 ## Quality
-- Preserve the BookNest design and responsive behavior.
-- Keep search, filters, language switching, cart controls, and checkout functional.
-- Do not invent customer reviews or business claims.
+- No fake reviews or fake achievements.
+- No broken buttons.
+- Avoid unnecessary features.
+- Keep reusable JavaScript functions where practical.
