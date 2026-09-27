@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6f1">
+  <meta name="description" content="Discover your next great read with BookNest.">
+  <title>BookNest — Find your next great read</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="navbar" id="home">
+    <a class="brand" href="#home" aria-label="BookNest home">BookNest</a>
+    <nav aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Home</a>
+      <a href="#books" data-i18n="navBooks">Books</a>
+      <a href="#categories" data-i18n="navCategories">Categories</a>
+    </nav>
+    <div class="header-actions">
+      <label class="language-label" for="languageSelect" data-i18n="languageLabel">Language</label>
+      <select class="language-select" id="languageSelect" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ur">اردو</option>
+      </select>
+      <button class="cart-button" id="cartButton" type="button" aria-label="Open cart">
+        <span data-i18n="cart">Cart</span><span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">YOUR NEXT GREAT READ</p>
+        <h1 id="heroTitle" data-i18n="heroTitle">Books that make<br><span>ideas happen.</span></h1>
+        <p class="hero-text" data-i18n="heroText">Discover thoughtful reads in programming, business, fiction and personal growth.</p>
+        <a class="primary-button" href="#books" data-i18n="shopBooks">Shop Books</a>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <div class="book-cover">BOOK<br>NEST</div>
+        <p data-i18n="heroCaption">Curated reads for curious minds.</p>
+      </div>
+    </section>
+
+    <section class="collection" id="books" aria-labelledby="collectionTitle">
+      <div class="toolbar">
+        <div>
+          <p class="eyebrow" data-i18n="collectionEyebrow">OUR COLLECTION</p>
+          <h2 id="collectionTitle" data-i18n="collectionTitle">Find your next book</h2>
+        </div>
+        <div class="controls">
+          <label class="sr-only" for="search" data-i18n="searchLabel">Search books</label>
+          <input id="search" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search books...">
+          <label class="sr-only" for="category" data-i18n="filterLabel">Filter by category</label>
+          <select id="category" aria-label="Filter by category"></select>
+        </div>
+      </div>
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+      <div class="book-grid" id="bookGrid" aria-live="polite" aria-label="Book collection"></div>
+    </section>
+
+    <section class="categories" id="categories" aria-labelledby="categoriesTitle">
+      <p class="eyebrow" data-i18n="exploreEyebrow">EXPLORE</p>
+      <h2 id="categoriesTitle" data-i18n="categoriesTitle">Browse by category</h2>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home">BookNest</a>
+    <p data-i18n="footerText">Find your next great read.</p>
+    <small>Made by Siddiqui</small>
+  </footer>
+
+  <div class="modal hidden" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" type="button" data-close="cartModal" aria-label="Close cart">×</button>
+      <p class="eyebrow" data-i18n="cartEyebrow">YOUR SELECTION</p>
+      <h2 id="cartTitle" data-i18n="cartTitle">Your Cart</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total"><span data-i18n="total">Total</span><strong id="cartTotal">Rs. 0</strong></div>
+      <button class="primary-button full" id="checkoutButton" type="button" data-i18n="checkoutButton">Continue to Checkout</button>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" type="button" data-close="checkoutModal" aria-label="Close checkout">×</button>
+      <p class="eyebrow" data-i18n="checkoutEyebrow">ALMOST THERE</p>
+      <h2 id="checkoutTitle" data-i18n="checkoutTitle">Checkout</h2>
+      <p class="muted" data-i18n="checkoutIntro">Enter your details to review your demo order.</p>
+      <form id="checkoutForm">
+        <label for="customerName" data-i18n="nameLabel">Full name</label>
+        <input id="customerName" name="customer_name" autocomplete="name" required maxlength="100">
+        <label for="email" data-i18n="emailLabel">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
+        <label for="phone" data-i18n="phoneLabel">Phone number</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="30">
+        <label for="address" data-i18n="addressLabel">Delivery address</label>
+        <textarea id="address" name="address" autocomplete="street-address" required maxlength="300"></textarea>
+        <p class="form-note" data-i18n="demoNote">Frontend demo only: details are not sent or saved.</p>
+        <button class="primary-button full" type="submit" data-i18n="placeOrder">Place Demo Order</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="noticeModal" role="dialog" aria-modal="true" aria-labelledby="noticeTitle" aria-hidden="true">
+    <div class="modal-card notice-card">
+      <button class="close" type="button" data-close="noticeModal" aria-label="Close message">×</button>
+      <div class="notice-icon" aria-hidden="true">✓</div>
+      <p class="eyebrow" data-i18n="thanksEyebrow">A LITTLE BOOK JOY</p>
+      <h2 id="noticeTitle" data-i18n="thanksTitle">Thank You!</h2>
+      <p id="noticeMessage" class="notice-message"></p>
+      <button class="primary-button full" type="button" data-close="noticeModal" data-i18n="continueShopping">Continue browsing</button>
+    </div>
+  </div>
+</body>
+</html>
